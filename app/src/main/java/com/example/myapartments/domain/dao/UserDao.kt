@@ -1,9 +1,9 @@
-package com.example.myapartments.domain
+package com.example.myapartments.domain.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Update
-import com.example.myapartments.data.UserDto
+import com.example.myapartments.data.dto.UserDto
 
 @Dao
 interface UserDao {

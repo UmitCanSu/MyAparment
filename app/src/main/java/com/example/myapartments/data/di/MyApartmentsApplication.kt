@@ -1,4 +1,4 @@
-package com.example.myapartments.di
+package com.example.myapartments.data.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

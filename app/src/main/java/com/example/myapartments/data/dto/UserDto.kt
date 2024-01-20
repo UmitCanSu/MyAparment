@@ -1,4 +1,4 @@
-package com.example.myapartments.data
+package com.example.myapartments.data.dto
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
