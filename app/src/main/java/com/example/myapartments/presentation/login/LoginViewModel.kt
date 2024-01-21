@@ -27,7 +27,9 @@ class LoginViewModel
             .collect {
                 when (it) {
                     is Resource.Error -> _state.value = LoginFragmentState.Error(it.message!!)
-                    is Resource.Success -> _state.value = LoginFragmentState.Success
+                    is Resource.Success -> _state.value =
+                        if (it.data!!) LoginFragmentState.CorrectPassword
+                        else LoginFragmentState.WrongPassword
                 }
             }
     }
@@ -37,10 +39,6 @@ class LoginViewModel
         loginUseCase.addLogin(login)
             .onStart { _state.value = LoginFragmentState.Loading }
             .collect {
-                when (it) {
-                    is Resource.Error -> _state.value = LoginFragmentState.Error(it.message!!)
-                    is Resource.Success -> _state.value = LoginFragmentState.Success
-                }
 
             }
     }

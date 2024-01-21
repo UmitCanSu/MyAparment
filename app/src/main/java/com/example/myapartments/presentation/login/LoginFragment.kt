@@ -58,11 +58,15 @@ class LoginFragment : Fragment() {
                 }
 
                 is LoginFragmentState.Error -> {
-                    Toast.makeText(requireContext(),it.message,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                 }
 
-                is LoginFragmentState.Success -> {
+                is LoginFragmentState.CorrectPassword -> {
                     Navigation.findNavController(requireView()).navigate(R.id.mainFragment)
+                }
+
+                is LoginFragmentState.WrongPassword -> {
+                    Toast.makeText(requireContext(), requireContext().getString(R.string.wrong_password), Toast.LENGTH_SHORT).show()
                 }
             }
         }
